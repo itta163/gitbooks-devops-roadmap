@@ -40,7 +40,7 @@
         "github-buttons": {
       		"buttons": [{
         		"user": "RationalMonster",
-        		"repo": "rationalmonster.github.io",
+        		"repo": "gitbooks-devops-roadmap",
         		"type": "star",
         		"size": "small",
         		"count": "true"
@@ -67,7 +67,7 @@
             "modify_format": "YYYY-MM-DD HH:mm:ss"
         },
         "edit-link": {
-          "base": "https://raw.githubusercontent.com/RationalMonster/rationalmonster.github.io/master/",
+          "base": "https://raw.githubusercontent.com/RationalMonster/gitbooks-devops-roadmap/master/",
           "label": "查看源MD文件"
         },
         "prism": {
