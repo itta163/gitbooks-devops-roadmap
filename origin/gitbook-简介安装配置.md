@@ -398,29 +398,48 @@ gitbook 支持构建用多种语言书写的书籍。每种语言应该是一个
 
 Github 有个功能 GitHub Pages 。它允许用户在 GitHub 仓库托管你的个人、组织或项目的静态页面（自动识别 html、css、javascript）。只要仓库指定分支中的内容符合一个静态站点要求，就可以在如下地址中进行访问：`https://Github用户名.github.com/仓库名` 
 
-在master分支中存放gitbook原始Markdown文件、配置文件等，在gh-pages分支中存放gitbook构建后的静态页面HTML文件。
+在Github中设置GitHub Page Source时可指定分支。
 
-## 1、在GitHub中建立仓库并克隆到本地
+- gh-pages branch
+- master branch
+- master branch /docs folder
+
+![](../assets/gitbook-0.png)
+
+不同的方式，无非是决定gitbook构建后的静态页面HTML文件存放在哪儿的问题。
+
+- 方式一(推荐)：在master分支中存放gitbook原始Markdown文件、配置文件等，在gh-pages分支中存放gitbook构建后的静态页面HTML文件。
+- 方式二：在master分支中即存放gitbook原始Markdown文件，也存放gitbook构建后的静态页面HTML文件。只不过是在/docs文件下
+
+
+
+## 1、在GitHub中建立仓库并将本地代码推送至master分支
+
+GitHub只建立空仓库是无法创建分支的。所以需要将本地代码推送到远程仓库master才可以
 
 ```bash
-git clone git@github.com:**/gitbbook-devops-roadmap.git
+git init
+git remote add origin git@github.com:**/gitbbook-devops-roadmap.git
+git add .
+git commit -m "init commit"
+git push origin master
 ```
 
-## 2、在本地建立空白gh-pages分支并同步到GitHub
+## 2、(方式二)在本地建立空白gh-pages分支并同步到GitHub
 
 仓库中建立一个名为 gh-pages 的分支。
 
 ```bash
 git checkout --orphan gh-pages
 # 该命令会创建gh-pages分支，并且该分支下有master分支下的所有文件
-git rm -rf .
-# 删除master分支带过来的文件
+git rm -rf *
+# 删除master分支带过来的文件(“git rm -rf *"命令并不能删除隐藏文件,可使用““git rm -rf ."命令)
 rm '.gitignore'
-# 如果master中.gitignore文件，“git rm -rf ."命令并不能删除隐藏文件
+# 如果master中.gitignore文件,可删除
 
 
 # 如果没有任何文件提交的话，分支是看不到的，可以创建一个新文件后再次提交则新创建的gh-pages分支就会显示出来。
-ehco “# MacOS\n*.DS_Store” > .gitignore
+echo "# MacOS\n*.DS_Store" > .gitignore
 git add .
 git commit -m "init commit"
 git push origin gh-pages
@@ -433,16 +452,46 @@ git push origin gh-pages
 在Master分支下使用“gitbook build”命令生产静态页面HTML文件
 
 ```bash
+gitbook install
+# 该命令后会下载构建gitbook所需的插件及资源到当前目录“node_modules”下
 gitbook build . [静态页面HTML文件输出文件夹]
 # 该命令默认会将静态页面HTML文件输出到当前目录"_book"下。如果指定，则输出到指定目录。
 ```
 
-## 4、**使用gh-pages插件将本地静态页面HTML文件推送到远处仓库gh-pages分支**
+## 4、(方式二)**使用gh-pages插件将本地静态页面HTML文件推送到远处仓库gh-pages分支**
 
 本地安装gh-pages插件
 
 ```bash
 npm install gh-pages -g
+```
+
+gh-pages命令详解
+
+```bash
+Usage: gh-pages [options]
+
+Options:
+  -V, --version            output the version number
+  -d, --dist <dist>        Base directory for all source files
+  -s, --src <src>          Pattern used to select which files to publish (default: "**/*")
+  -b, --branch <branch>    Name of the branch you are pushing to (default: "gh-pages")
+  -e, --dest <dest>        Target directory within the destination branch (relative to the root) (default: ".")
+  -a, --add                Only add, and never remove existing files
+  -x, --silent             Do not output the repository url
+  -m, --message <message>  commit message (default: "Updates")
+  -g, --tag <tag>          add tag to commit
+  --git <git>              Path to git executable (default: "git")
+  -t, --dotfiles           Include dotfiles
+  -r, --repo <repo>        URL of the repository you are pushing to
+  -p, --depth <depth>      depth for clone (default: 1)
+  -o, --remote <name>      The name of the remote (default: "origin")
+  -u, --user <address>     The name and email of the user (defaults to the git config).  Format is "Your Name <email@example.com>".
+  -v, --remove <pattern>   Remove files that match the given pattern (ignored if used together with --add). (default: ".")
+  -n, --no-push            Commit only (with no push)
+  -f, --no-history         Push force new commit without parent history
+  -h, --help               output usage information
+
 ```
 
 推送静态页面HTML文件
@@ -453,7 +502,7 @@ gh-pages -d _book
 
 ## 5、GitHub配置gh-pages服务
 
-![](../assets/gitbook-1.png)
+![](../assets/gitbook-0.png)
 
 ## 6、(可选)自定义域名访问GitHub Pages托管的Gitbook
 
