@@ -211,6 +211,8 @@
     * Maven 多模块构建
 * Git
     * [git原理](origin/git-原理.md)
+    * [git常用操作](origin/git-常用操纵.md)
+    * [git .gitignore文件](origin/git-gitignore文件.md)
     * [git merge与git rebase](origin/origin-git-merge-git-rebase.md)
     * [git submodule](origin/git-submodule.md)
     * [git flow工作流](origin/git-workflow.md)
