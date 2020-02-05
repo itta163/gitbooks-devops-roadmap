@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>git常用操作 · Devops Roadmap</title>
+        <title>vCenter · Devops Roadmap</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -106,10 +106,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="git-gitignore文件.html" />
+    <link rel="next" href="dingding-customrobot.html" />
     
     
-    <link rel="prev" href="git-原理.html" />
+    <link rel="prev" href="vsphere-esxi.html" />
     
 
     <style>
@@ -1601,6 +1601,42 @@
                         <b>4.2.2.3.</b>
                     
                     代码仓库的备份与恢复
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2.3" >
+            
+                <span>
+            
+                    
+                        <b>4.2.3.</b>
+                    
+                    Gitlab CI/CD
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.3.1" data-path="gitlab-runner.html">
+            
+                <a href="gitlab-runner.html">
+            
+                    
+                        <b>4.2.3.1.</b>
+                    
+                    Gitlab Runner
             
                 </a>
             
@@ -3497,9 +3533,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="7.4.2" data-path="git-常用操纵.html">
+        <li class="chapter " data-level="7.4.2" data-path="git-常用操作.html">
             
-                <a href="git-常用操纵.html">
+                <a href="git-常用操作.html">
             
                     
                         <b>7.4.2.</b>
@@ -3997,6 +4033,21 @@
                         <b>7.11.2.</b>
                     
                     Windows小技巧
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.11.3" data-path="windows-server.html">
+            
+                <a href="windows-server.html">
+            
+                    
+                        <b>7.11.3.</b>
+                    
+                    Windows Server管理
             
                 </a>
             
@@ -4678,12 +4729,99 @@
             
         </li>
     
-        <li class="chapter " data-level="7.19" data-path="dingding-customrobot.html">
+        <li class="chapter " data-level="7.19" >
+            
+                <span>
+            
+                    
+                        <b>7.19.</b>
+                    
+                    OpenVPN
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.19.1" data-path="openvpn-server.html">
+            
+                <a href="openvpn-server.html">
+            
+                    
+                        <b>7.19.1.</b>
+                    
+                    OpenVPN Server
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7.20" >
+            
+                <span>
+            
+                    
+                        <b>7.20.</b>
+                    
+                    vSphere
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.20.1" data-path="vsphere-esxi.html">
+            
+                <a href="vsphere-esxi.html">
+            
+                    
+                        <b>7.20.1.</b>
+                    
+                    ESXI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="7.20.2" data-path="vSphere-vCenter.html">
+            
+                <a href="vSphere-vCenter.html">
+            
+                    
+                        <b>7.20.2.</b>
+                    
+                    vCenter
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7.21" data-path="dingding-customrobot.html">
             
                 <a href="dingding-customrobot.html">
             
                     
-                        <b>7.19.</b>
+                        <b>7.21.</b>
                     
                     钉钉机器人
             
@@ -4693,12 +4831,12 @@
             
         </li>
     
-        <li class="chapter " data-level="7.20" data-path="经典面试题.html">
+        <li class="chapter " data-level="7.22" data-path="经典面试题.html">
             
                 <a href="经典面试题.html">
             
                     
-                        <b>7.20.</b>
+                        <b>7.22.</b>
                     
                     经典面试题
             
@@ -4746,7 +4884,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >git常用操作</a>
+        <a href=".." >vCenter</a>
     </h1>
 </div>
 
@@ -4761,35 +4899,33 @@
     
 					<section class="normal markdown-section">
 						
-						<h1 id="git&#x5E38;&#x7528;&#x64CD;&#x4F5C;">git&#x5E38;&#x7528;&#x64CD;&#x4F5C;</h1>
-<h2 id="1&#x3001;&#x5220;&#x9664;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x5206;&#x652F;">1&#x3001;&#x5220;&#x9664;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x5206;&#x652F;</h2>
-<pre class="language-"><code class="lang-bash"><span class="token function">git</span> push &#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x522B;&#x540D; :&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x4E2D;&#x7684;&#x5206;&#x652F;
-</code></pre>
-<h2 id="2&#x3001;&#x514B;&#x9686;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x6307;&#x5B9A;&#x5206;&#x652F;&#x5230;&#x672C;&#x5730;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x5939;">2&#x3001;&#x514B;&#x9686;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x6307;&#x5B9A;&#x5206;&#x652F;&#x5230;&#x672C;&#x5730;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x5939;</h2>
-<pre class="language-"><code class="lang-bash"><span class="token function">git</span> clone <span class="token operator">&lt;</span>Git_URL<span class="token operator">&gt;</span> -b <span class="token operator">&lt;</span>branch_name<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>&#x6307;&#x5B9A;&#x76EE;&#x5F55;<span class="token operator">&gt;</span>
-</code></pre>
-<h2 id="3&#x3001;&#x62C9;&#x53D6;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x6307;&#x5B9A;&#x5206;&#x652F;&#x5230;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x7684;&#x7279;&#x5B9A;&#x5206;&#x652F;">3&#x3001;&#x62C9;&#x53D6;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x6307;&#x5B9A;&#x5206;&#x652F;&#x5230;&#x672C;&#x5730;&#x4ED3;&#x5E93;&#x7684;&#x7279;&#x5B9A;&#x5206;&#x652F;</h2>
-<pre class="language-"><code class="lang-bash"><span class="token function">git</span> fetch <span class="token operator">&lt;</span>remote_repo_shortname<span class="token operator">&gt;</span> &#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#x4E2D;&#x5206;&#x652F;&#x540D;:&#x672C;&#x5730;&#x5206;&#x652F;&#x540D;
-<span class="token comment">#&#x4F7F;&#x7528;&#x8BE5;&#x65B9;&#x5F0F;&#x4F1A;&#x5728;&#x672C;&#x5730;&#x65B0;&#x5EFA;&#x5206;&#x652F;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x4F1A;&#x81EA;&#x52A8;&#x5207;&#x6362;&#x5230;&#x8BE5;&#x672C;&#x5730;&#x5206;&#x652F;&#xFF0C;&#x9700;&#x8981;&#x624B;&#x52A8;checkout&#x5207;&#x6362;&#x5206;&#x652F;&#x3002;</span>
-<span class="token function">git</span> remote update <span class="token punctuation">;</span><span class="token punctuation">\</span>
-<span class="token function">git</span> checkout -b local_branch <span class="token operator">&lt;</span>remote_repo_shortname<span class="token operator">&gt;</span>/<span class="token operator">&lt;</span>remote_branch<span class="token operator">&gt;</span>
-<span class="token comment">#&#x4F7F;&#x7528;&#x8BE5;&#x65B9;&#x5F0F;&#x4F1A;&#x5728;&#x672C;&#x5730;&#x65B0;&#x5EFA;&#x5206;&#x652F;&#xFF0C;&#x5E76;&#x81EA;&#x52A8;&#x5207;&#x6362;&#x5230;&#x8BE5;&#x672C;&#x5730;&#x5206;&#x652F;&#x3002;&#x91C7;&#x7528;&#x6B64;&#x79CD;&#x65B9;&#x6CD5;&#x5EFA;&#x7ACB;&#x7684;&#x672C;&#x5730;&#x5206;&#x652F;&#x4F1A;&#x548C;&#x8FDC;&#x7A0B;&#x5206;&#x652F;&#x5EFA;&#x7ACB;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x3002;</span>
-</code></pre>
-<h2 id="4&#x3001;git&#x4EE3;&#x7406;&#x8BBE;&#x7F6E;">4&#x3001;Git&#x4EE3;&#x7406;&#x8BBE;&#x7F6E;</h2>
-<pre class="language-"><code class="lang-bash"><span class="token comment"># &#x8BBE;&#x7F6E;&#x4EE3;&#x7406;</span>
-<span class="token function">git</span> config --global http.proxy &#x4EE3;&#x7406;&#x5730;&#x5740;
-<span class="token function">git</span> config --global https.proxy &#x4EE3;&#x7406;&#x5730;&#x5740;
-
-<span class="token comment"># &#x53D6;&#x6D88;&#x4EE3;&#x7406;</span>
-<span class="token function">git</span> config --global --unset http.proxy
-<span class="token function">git</span> config --global --unset https.proxy
-
-<span class="token comment"># &#x67E5;&#x770B;&#x4EE3;&#x7406;&#x8BBE;&#x7F6E;</span>
-<span class="token function">git</span> config --global --get http.proxy
-<span class="token function">git</span> config --global --get https.proxy
-</code></pre>
+						<h1 id="vsphere-vcenter-server">vSphere vCenter Server</h1>
+<h1 id="&#x4E00;&#x3001;&#x7B80;&#x4ECB;">&#x4E00;&#x3001;&#x7B80;&#x4ECB;</h1>
+<ul>
+<li><p>vSphere Client&#x867D;&#x7136;&#x53EF;&#x4EE5;&#x7BA1;&#x7406;ESXI&#xFF0C;&#x4F46;&#x53EA;&#x80FD;&#x5B9E;&#x73B0;&#x4E00;&#x4E9B;&#x5982;&#x521B;&#x5EFA;&#x865A;&#x62DF;&#x673A;&#x7684;&#x7B80;&#x5355;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x800C;vsphere&#x7684;&#x9AD8;&#x7EA7;&#x529F;&#x80FD;&#x90FD;&#x65E0;&#x6CD5;&#x5B9E;&#x73B0;&#x3002;&#x66F4;&#x91CD;&#x8981;&#x7684;&#x662F;&#x591A;&#x53F0;ESXI&#x65E0;&#x6CD5;&#x8FDB;&#x884C;&#x7EDF;&#x4E00;&#x7BA1;&#x7406;&#xFF0C;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;vsphere&#x5F00;&#x53D1;&#x4E86;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#x7EC4;&#x4EF6;vCenter Server</p>
+</li>
+<li><p><strong>vCenter Server</strong>&#x662F;&#x5B89;&#x88C5;&#x5728; Window &#x6216; Linux &#x670D;&#x52A1;&#x5668;&#x91CC;&#xFF0C;&#x7528;&#x4E8E;&#x7BA1;&#x7406;&#x4E00;&#x4E2A;&#x6216;&#x8005;&#x591A;&#x4E2A;ESXi&#x670D;&#x52A1;&#x5668;&#x7684;&#x5DE5;&#x5177;&#x3002;&#xFF08;&#x53EF;&#x4EE5;&#x5B89;&#x88C5;&#x5728; ESXi &#x670D;&#x52A1;&#x5668;&#x7684;&#x865A;&#x62DF;&#x673A;&#x91CC;&#xFF09;</p>
+</li>
+<li><p><strong>vCenter Server Appliance</strong>&#xFF1A;&#x7B80;&#x79F0;VCSA&#xFF0C;&#x662F;&#x9884;&#x914D;&#x7F6E;&#x7684; Linux &#x865A;&#x62DF;&#x673A;&#xFF0C;&#x9488;&#x5BF9;&#x5728; Linux &#x4E0A;&#x8FD0;&#x884C;vCenter Server &#x53CA;&#x5173;&#x8054;&#x670D;&#x52A1;&#x8FDB;&#x884C;&#x4E86;&#x4F18;&#x5316;&#xFF0C;&#x4ECE;6.0&#x5F00;&#x59CB;&#x5176;&#x5B9E;&#x4F53;&#x5F62;&#x6001;&#x662F;&#x4E2A;.iso&#x6587;&#x4EF6;&#xFF0C;&#x9700;&#x8981;&#x5728;windows&#x684C;&#x9762;&#x4E0A;&#x6253;&#x5F00;&#xFF0C;&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#x8FC7;&#x7A0B;&#x5C06;&#x5176;&#x5B89;&#x88C5;&#x5230;ESXi&#x4E3B;&#x673A;&#x4E0A;&#x3002;</p>
+</li>
+</ul>
+<h1 id="&#x4E8C;&#x3001;&#x5B89;&#x88C5;&#x90E8;&#x7F72;">&#x4E8C;&#x3001;&#x5B89;&#x88C5;&#x90E8;&#x7F72;</h1>
+<p>vCenter ISO&#x955C;&#x50CF;&#x4E0B;&#x8F7D;&#x5730;&#x5740;&#xFF1A;<a href="https://my.vmware.com/cn/web/vmware/details?downloadGroup=VC60U3H&amp;productId=491" _target="blank">https://my.vmware.com/cn/web/vmware/details?downloadGroup=VC60U3H&amp;productId=491</a></p>
+<p>&#x5B98;&#x65B9;&#x6587;&#x6863;&#xFF1A;<a href="https://docs.vmware.com/cn/VMware-vSphere/6.7/com.vmware.vcenter.install.doc/GUID-11468F6F-0D8C-41B1-82C9-29284630A4FF.html" _target="blank">https://docs.vmware.com/cn/VMware-vSphere/6.7/com.vmware.vcenter.install.doc/GUID-11468F6F-0D8C-41B1-82C9-29284630A4FF.html</a></p>
+<p>&#x5B89;&#x88C5;&#x90E8;&#x7F72;&#x53C2;&#x8003;</p>
+<ol>
+<li><a href="https://blog.51cto.com/3701740/2326475" _target="blank">https://blog.51cto.com/3701740/2326475</a></li>
+<li><a href="https://blog.csdn.net/weixin_44907813/article/details/99185102" _target="blank">https://blog.csdn.net/weixin_44907813/article/details/99185102</a></li>
+<li><a href="https://blog.51cto.com/14227204/2418905" _target="blank">https://blog.51cto.com/14227204/2418905</a></li>
+</ol>
+<h1 id="&#x4E09;&#x3001;&#x5176;&#x4ED6;">&#x4E09;&#x3001;&#x5176;&#x4ED6;</h1>
+<h2 id="1&#x3001;&#x627E;&#x56DE;vcenter-&#x9ED8;&#x8BA4;&#x7528;&#x6237;&#x5BC6;&#x7801;">1&#x3001;&#x627E;&#x56DE;vCenter &#x9ED8;&#x8BA4;&#x7528;&#x6237;&#x5BC6;&#x7801;</h2>
+<p>&#x5728;&#x4EE5;&#x7BA1;&#x7406;&#x5458;&#x6743;&#x9650;&#x6253;&#x5F00;&#x7684;CMD&#x4E2D;&#x5207;&#x6362;&#x81F3;C:\Program Files\VMware\vCenter Server\vmdird&#x76EE;&#x5F55;&#x4E0B;&#x8FDB;&#x5165;&#x540E;&#x6267;&#x884C;vdcadmintool.exe&#x3002;</p>
+<p><img src="../assets/vsphere-vcenter-1.png" alt=""></p>
+<p>&#x63D0;&#x793A;&#x8BA9;&#x4F60;&#x8F93;&#x5165; UPN&#xFF1A;&#x5C31;&#x662F;&#x8F93;&#x5165;&#x4F60;&#x521B;&#x5EFA;&#x65F6;&#x7684;&#x767B;&#x5F55;&#x7528;&#x6237;&#x540D;&#xFF0C;&#x4E00;&#x822C;&#x9ED8;&#x8BA4;&#x4E3A;administrator@vSphere.local
+&#x8F93;&#x5165;&#x540E;&#x56DE;&#x8F66;&#x4F1A;&#x7ED9;&#x4F60;&#x4E00;&#x4E2A; New password  </p>
 <footer class="page-footer"><span class="copyright">Copyright Curiouser all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2020-02-04 14:03:15
+2020-02-05 16:47:15
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
 						
@@ -4818,12 +4954,12 @@
 
 		
 		
-		<a href="git-原理.html" class="navigation navigation-prev " aria-label="Previous page: git原理">
+		<a href="vsphere-esxi.html" class="navigation navigation-prev " aria-label="Previous page: ESXI">
 			<i class="fa fa-angle-left"></i>
 		</a>
 		
 		
-		<a href="git-gitignore文件.html" class="navigation navigation-next " aria-label="Next page: git .gitignore文件">
+		<a href="dingding-customrobot.html" class="navigation navigation-next " aria-label="Next page: 钉钉机器人">
 			<i class="fa fa-angle-right"></i>
 		</a>
 		
@@ -4833,7 +4969,7 @@
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"git常用操作","level":"7.4.2","depth":2,"next":{"title":"git .gitignore文件","level":"7.4.3","depth":2,"path":"origin/git-gitignore文件.md","ref":"origin/git-gitignore文件.md","articles":[]},"previous":{"title":"git原理","level":"7.4.1","depth":2,"path":"origin/git-原理.md","ref":"origin/git-原理.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"./assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"gitbooks-devops-roadmap","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://raw.githubusercontent.com/RationalMonster/gitbooks-devops-roadmap/master/","label":"查看源MD文件"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/git-常用操纵.md","mtime":"2020-02-04T06:03:15.356Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2020-02-04T07:15:52.885Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"vCenter","level":"7.20.2","depth":2,"next":{"title":"钉钉机器人","level":"7.21","depth":1,"path":"origin/dingding-customrobot.md","ref":"origin/dingding-customrobot.md","articles":[]},"previous":{"title":"ESXI","level":"7.20.1","depth":2,"path":"origin/vsphere-esxi.md","ref":"origin/vsphere-esxi.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"./assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"gitbooks-devops-roadmap","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://raw.githubusercontent.com/RationalMonster/gitbooks-devops-roadmap/master/","label":"查看源MD文件"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/vSphere-vCenter.md","mtime":"2020-02-05T08:47:15.909Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2020-02-05T16:58:33.312Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>
