@@ -94,6 +94,8 @@
         * [配置SMTP邮件服务](origin/gitlab-配置SMTP邮件服务.md)
         * [代码仓库配置事件触发器Webhook](origin/gitlab-配置代码仓库事件触发器Webhook.md)
         * [代码仓库的备份与恢复](origin/gitlab-backuprestore.md)
+    * Gitlab CI/CD
+        * [Gitlab Runner](origin/gitlab-runner.md)
 * [Nexus](origin/nexus-简介.md)
     * 配置
         * [使用OrientDB Console在DB层面修改配置](origin/nexus-使用OrientDB Console在DB层面修改配置.md)
@@ -211,7 +213,7 @@
     * Maven 多模块构建
 * Git
     * [git原理](origin/git-原理.md)
-    * [git常用操作](origin/git-常用操纵.md)
+    * [git常用操作](origin/git-常用操作.md)
     * [git .gitignore文件](origin/git-gitignore文件.md)
     * [git merge与git rebase](origin/origin-git-merge-git-rebase.md)
     * [git submodule](origin/git-submodule.md)
@@ -242,6 +244,7 @@
 * Windows
     * [CMD发送SMTP邮件](origin/windows-cmd发送SMTP邮件.md)
     * [Windows小技巧](origin/windows-小技巧.md)
+    * [Windows Server管理](origin/windows-server.md)
 * Linux
     * [Linux小技巧](origin/linux-小技巧.md)
     * [文本处理](origin/linux-文本处理.md)
@@ -283,5 +286,10 @@
     * [群晖Synology的iSCSI](origin/iSCSI-简介配置使用.md)
 * [GitBook](origin/gitbook-简介安装配置.md)
 * [Telegram机器人](origin/telegram-Bot机器.md)
+* OpenVPN
+    * [OpenVPN Server](origin/openvpn-server.md)
+* vSphere
+    * [ESXI](origin/vsphere-esxi.md)
+    * [vCenter](origin/vSphere-vCenter.md)
 * [钉钉机器人](origin/dingding-customrobot.md)
 * [经典面试题](origin/经典面试题.md)

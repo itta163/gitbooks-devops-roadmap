@@ -742,3 +742,22 @@ $ expand -t 4 file
 
 abcd::::efg::hi
 ```
+
+# 35、修改时区
+
+1. Docker容器中
+
+   - 添加环境变量：TZ = Asia/Shanghai
+
+2. Linux主机
+
+   ```bash
+   timedatectl set-timezone "Asia/Shanghai"
+   # 设置时区
+   timedatectl status 
+   # 查看当前的时区状态
+   date -R
+   # 查看时区
+   ```
+
+   
