@@ -93,10 +93,6 @@ govc是通过设置环境变量进行配置的。
 
 ## 查看所有VM
 
-$$
-
-$$
-
 ```bash
 govc find . -type m
 ```
@@ -104,11 +100,131 @@ govc find . -type m
 ## VM电源的开启与关闭
 
 ```bash
+vmname=test
 # 开启VM电源
-govc vm.power -on -M VM_Name
+govc vm.power -on -M $vmname
 # 关闭VM电源
-govc vm.power -off -M VM_Name
+govc vm.power -off -M $vmname
 ```
+
+## 在VM中进行的操作
+
+### Prerequisite
+
+- VM安装VMware-Tools工具后进行重启
+  - 可直接使用包管理工具安装,例如:`yum install -y open-vm-tools`
+  - 手动省略，太麻烦
+
+- 设置要访问VM的名字及登录用户密码
+
+  ```bash
+  GOVC_GUEST_LOGIN="root:******"
+  # 如果密码中包含特殊字符“!”，使用"\"进行转义."@"不需要转义
+  vmname="test"
+  ```
+
+### 命令
+
+```bash
+govc guest.* -vm $name 
+```
+
+- guest.chmod：修改VM中文件的权限
+
+- guest.chown：设置VM中文件的所有者
+
+- guest.df：显示VM中文件的使用情况
+
+  ```bash
+  govc guest.df -vm $vmname
+  ```
+
+- guest.download：拷贝VM中的文件到本地
+
+  ```bash
+  
+  ```
+
+- guest.getenv：查看VM中的环境变量
+
+- guest.kill：杀掉VM中的进程
+
+- guest.ls：查看VM中的文件系统
+
+  ```bash
+  # 例如查看指定VM中“/root”下的文件夹
+  govc guest.ls -vm $vmname /root
+  ```
+
+- guest.mkdir：在VM中创建文件夹
+
+  ```bash
+  govc guest.mkdir -vm $vmname /root/test
+  ```
+
+- guest.mktemp：在VM中创建临时文件或文件夹
+
+- guest.mv：在VM中移动文件
+
+- guest.ps：查看VM中的进程
+
+- guest.rm：删除VM中的文件
+
+- guest.rmdir：删除VM中的文件夹
+
+- guest.run：在VM中运行命令，并显示输出结果
+
+  ```bash
+  Usage: govc guest.run [OPTIONS] PATH [ARG]...
+  
+  Examples:
+    govc guest.run -vm $vmname ifconfig
+    govc guest.run -vm $vmname ifconfig eth0
+    cal | govc guest.run -vm $vmname -d - cat
+    govc guest.run -vm $vmname -d "hello $USER" cat
+    govc guest.run -vm $vmname curl -s :invalid: || echo $? # exit code 6
+    govc guest.run -vm $vmname -e FOO=bar -e BIZ=baz -C /tmp env
+  
+  Options:
+    -C=                    The absolute path of the working directory for the program to start
+    -d=                    Input data string. A value of '-' reads from OS stdin
+    -e=[]                  Set environment variables
+    -i=false               Interactive session
+    -l=:                   Guest VM credentials [GOVC_GUEST_LOGIN]
+    -vm=                   Virtual machine [GOVC_VM]
+  
+  govc guest.run -vm $vmname sh -c /root/beforeShutDown.sh
+  ```
+
+- guest.start：在VM中启动程序，并显示输出结果
+
+  ```bash
+  Usage: govc guest.start [OPTIONS] PATH [ARG]...
+  
+  Examples:
+    govc guest.start -vm $vmname /bin/mount /dev/hdb1 /data
+    pid=$(govc guest.start -vm $vmname /bin/long-running-thing)
+    govc guest.ps -vm $vmname -p $pid -X
+  
+  Options:
+    -C=                    The absolute path of the working directory for the program to start
+    -e=[]                  Set environment variable (key=val)
+    -i=false               Interactive session
+    -l=:                   Guest VM credentials [GOVC_GUEST_LOGIN]
+    -vm=                   Virtual machine [GOVC_VM]
+  ```
+
+- guest.touch：在VM中创建文件
+
+- guest.upload：上传本地文件到VM中
+
+  ```bash
+  govc guest.upload -vm $vmname ./**.tar.gz /root/***.tar.gz
+  ```
+
+  
+
+
 
 
 
