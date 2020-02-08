@@ -91,13 +91,13 @@ govc是通过设置环境变量进行配置的。
 
 具体命令详解可查看文档：https://github.com/vmware/govmomi/blob/master/govc/USAGE.md
 
-## 查看所有VM
+## 1、查看所有VM
 
 ```bash
 govc find . -type m
 ```
 
-## VM电源的开启与关闭
+## 2、VM电源的开启与关闭
 
 ```bash
 vmname=test
@@ -107,7 +107,14 @@ govc vm.power -on -M $vmname
 govc vm.power -off -M $vmname
 ```
 
-## 在VM中进行的操作
+## 3、ESXI主机电源的管理
+
+```bash
+# 关闭ESXI主机电源
+govc host.shutdown -f -host.ip ESXI_IP
+```
+
+## 4、在VM中进行的操作
 
 ### Prerequisite
 
