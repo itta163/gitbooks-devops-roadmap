@@ -292,6 +292,6 @@
     * [ESXI](origin/vsphere-esxi.md)
     * [vCenter](origin/vSphere-vCenter.md)
     * SDK/CLI
-      * [go语言CLI客户端：govc](origin/vsphere-govc.md)
+      * [Go语言CLI: govc](origin/vsphere-govc.md)
 * [钉钉机器人](origin/dingding-customrobot.md)
 * [经典面试题](origin/经典面试题.md)

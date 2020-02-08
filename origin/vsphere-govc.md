@@ -126,53 +126,49 @@ govc vm.power -off -M $vmname
 ### 命令
 
 ```bash
-govc guest.* -vm $name 
+govc guest.* -vm $vmname 
 ```
 
-- guest.chmod：修改VM中文件的权限
+- **guest.chmod**：修改VM中文件的权限
 
-- guest.chown：设置VM中文件的所有者
+- **guest.chown**：设置VM中文件的所有者
 
-- guest.df：显示VM中文件的使用情况
+- **guest.df**：显示VM中文件的使用情况
 
   ```bash
   govc guest.df -vm $vmname
   ```
 
-- guest.download：拷贝VM中的文件到本地
+- **guest.download**：拷贝VM中的文件到本地
 
-  ```bash
-  
-  ```
+- **guest.getenv**：查看VM中的环境变量
 
-- guest.getenv：查看VM中的环境变量
+- **guest.kill**：杀掉VM中的进程
 
-- guest.kill：杀掉VM中的进程
-
-- guest.ls：查看VM中的文件系统
+- **guest.ls**：查看VM中的文件系统
 
   ```bash
   # 例如查看指定VM中“/root”下的文件夹
   govc guest.ls -vm $vmname /root
   ```
 
-- guest.mkdir：在VM中创建文件夹
+- **guest.mkdir**：在VM中创建文件夹
 
   ```bash
   govc guest.mkdir -vm $vmname /root/test
   ```
 
-- guest.mktemp：在VM中创建临时文件或文件夹
+- **guest.mktemp**：在VM中创建临时文件或文件夹
 
-- guest.mv：在VM中移动文件
+- **guest.mv**：在VM中移动文件
 
-- guest.ps：查看VM中的进程
+- **guest.ps**：查看VM中的进程
 
-- guest.rm：删除VM中的文件
+- **guest.rm**：删除VM中的文件
 
-- guest.rmdir：删除VM中的文件夹
+- **guest.rmdir**：删除VM中的文件夹
 
-- guest.run：在VM中运行命令，并显示输出结果
+- **guest.run**：在VM中运行命令，并显示输出结果
 
   ```bash
   Usage: govc guest.run [OPTIONS] PATH [ARG]...
@@ -196,7 +192,7 @@ govc guest.* -vm $name
   govc guest.run -vm $vmname sh -c /root/beforeShutDown.sh
   ```
 
-- guest.start：在VM中启动程序，并显示输出结果
+- **guest.start**：在VM中启动程序，并显示输出结果
 
   ```bash
   Usage: govc guest.start [OPTIONS] PATH [ARG]...
@@ -214,9 +210,9 @@ govc guest.* -vm $name
     -vm=                   Virtual machine [GOVC_VM]
   ```
 
-- guest.touch：在VM中创建文件
+- **guest.touch**：在VM中创建文件
 
-- guest.upload：上传本地文件到VM中
+- **guest.upload**：上传本地文件到VM中
 
   ```bash
   govc guest.upload -vm $vmname ./**.tar.gz /root/***.tar.gz

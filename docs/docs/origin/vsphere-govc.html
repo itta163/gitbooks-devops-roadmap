@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>go语言CLI客户端：govc · Devops Roadmap</title>
+        <title>Go语言CLI: govc · Devops Roadmap</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -4832,7 +4832,7 @@
                     
                         <b>7.20.3.1.</b>
                     
-                    go语言CLI客户端：govc
+                    Go语言CLI: govc
             
                 </a>
             
@@ -4918,7 +4918,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >go语言CLI客户端：govc</a>
+        <a href=".." >Go语言CLI: govc</a>
     </h1>
 </div>
 
@@ -5005,18 +5005,115 @@ $ govc about -u user:pass@host
 <h1 id="&#x4E09;&#x3001;&#x5E38;&#x7528;&#x547D;&#x4EE4;">&#x4E09;&#x3001;&#x5E38;&#x7528;&#x547D;&#x4EE4;</h1>
 <p>&#x5177;&#x4F53;&#x547D;&#x4EE4;&#x8BE6;&#x89E3;&#x53EF;&#x67E5;&#x770B;&#x6587;&#x6863;&#xFF1A;<a href="https://github.com/vmware/govmomi/blob/master/govc/USAGE.md" _target="blank">https://github.com/vmware/govmomi/blob/master/govc/USAGE.md</a></p>
 <h2 id="&#x67E5;&#x770B;&#x6240;&#x6709;vm">&#x67E5;&#x770B;&#x6240;&#x6709;VM</h2>
-<p>$$</p>
-<p>$$</p>
 <pre class="language-"><code class="lang-bash">govc <span class="token function">find</span> <span class="token builtin class-name">.</span> -type m
 </code></pre>
 <h2 id="vm&#x7535;&#x6E90;&#x7684;&#x5F00;&#x542F;&#x4E0E;&#x5173;&#x95ED;">VM&#x7535;&#x6E90;&#x7684;&#x5F00;&#x542F;&#x4E0E;&#x5173;&#x95ED;</h2>
-<pre class="language-"><code class="lang-bash"><span class="token comment"># &#x5F00;&#x542F;VM&#x7535;&#x6E90;</span>
-govc vm.power -on -M VM_Name
+<pre class="language-"><code class="lang-bash"><span class="token assign-left variable">vmname</span><span class="token operator">=</span>test
+<span class="token comment"># &#x5F00;&#x542F;VM&#x7535;&#x6E90;</span>
+govc vm.power -on -M <span class="token variable">$vmname</span>
 <span class="token comment"># &#x5173;&#x95ED;VM&#x7535;&#x6E90;</span>
-govc vm.power -off -M VM_Name
+govc vm.power -off -M <span class="token variable">$vmname</span>
 </code></pre>
+<h2 id="&#x5728;vm&#x4E2D;&#x8FDB;&#x884C;&#x7684;&#x64CD;&#x4F5C;">&#x5728;VM&#x4E2D;&#x8FDB;&#x884C;&#x7684;&#x64CD;&#x4F5C;</h2>
+<h3 id="prerequisite">Prerequisite</h3>
+<ul>
+<li><p>VM&#x5B89;&#x88C5;VMware-Tools&#x5DE5;&#x5177;&#x540E;&#x8FDB;&#x884C;&#x91CD;&#x542F;</p>
+<ul>
+<li>&#x53EF;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5305;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#x5B89;&#x88C5;,&#x4F8B;&#x5982;:<code>yum install -y open-vm-tools</code></li>
+<li>&#x624B;&#x52A8;&#x7701;&#x7565;&#xFF0C;&#x592A;&#x9EBB;&#x70E6;</li>
+</ul>
+</li>
+<li><p>&#x8BBE;&#x7F6E;&#x8981;&#x8BBF;&#x95EE;VM&#x7684;&#x540D;&#x5B57;&#x53CA;&#x767B;&#x5F55;&#x7528;&#x6237;&#x5BC6;&#x7801;</p>
+<pre class="language-"><code class="lang-bash"><span class="token assign-left variable">GOVC_GUEST_LOGIN</span><span class="token operator">=</span><span class="token string">&quot;root:******&quot;</span>
+<span class="token comment"># &#x5982;&#x679C;&#x5BC6;&#x7801;&#x4E2D;&#x5305;&#x542B;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x201C;!&#x201D;&#xFF0C;&#x4F7F;&#x7528;&quot;\&quot;&#x8FDB;&#x884C;&#x8F6C;&#x4E49;.&quot;@&quot;&#x4E0D;&#x9700;&#x8981;&#x8F6C;&#x4E49;</span>
+<span class="token assign-left variable">vmname</span><span class="token operator">=</span><span class="token string">&quot;test&quot;</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="&#x547D;&#x4EE4;">&#x547D;&#x4EE4;</h3>
+<pre class="language-"><code class="lang-bash">govc guest.* -vm <span class="token variable">$vmname</span>
+</code></pre>
+<ul>
+<li><p><strong>guest.chmod</strong>&#xFF1A;&#x4FEE;&#x6539;VM&#x4E2D;&#x6587;&#x4EF6;&#x7684;&#x6743;&#x9650;</p>
+</li>
+<li><p><strong>guest.chown</strong>&#xFF1A;&#x8BBE;&#x7F6E;VM&#x4E2D;&#x6587;&#x4EF6;&#x7684;&#x6240;&#x6709;&#x8005;</p>
+</li>
+<li><p><strong>guest.df</strong>&#xFF1A;&#x663E;&#x793A;VM&#x4E2D;&#x6587;&#x4EF6;&#x7684;&#x4F7F;&#x7528;&#x60C5;&#x51B5;</p>
+<pre class="language-"><code class="lang-bash">govc guest.df -vm <span class="token variable">$vmname</span>
+</code></pre>
+</li>
+<li><p><strong>guest.download</strong>&#xFF1A;&#x62F7;&#x8D1D;VM&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x5230;&#x672C;&#x5730;</p>
+</li>
+<li><p><strong>guest.getenv</strong>&#xFF1A;&#x67E5;&#x770B;VM&#x4E2D;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;</p>
+</li>
+<li><p><strong>guest.kill</strong>&#xFF1A;&#x6740;&#x6389;VM&#x4E2D;&#x7684;&#x8FDB;&#x7A0B;</p>
+</li>
+<li><p><strong>guest.ls</strong>&#xFF1A;&#x67E5;&#x770B;VM&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;</p>
+<pre class="language-"><code class="lang-bash"><span class="token comment"># &#x4F8B;&#x5982;&#x67E5;&#x770B;&#x6307;&#x5B9A;VM&#x4E2D;&#x201C;/root&#x201D;&#x4E0B;&#x7684;&#x6587;&#x4EF6;&#x5939;</span>
+govc guest.ls -vm <span class="token variable">$vmname</span> /root
+</code></pre>
+</li>
+<li><p><strong>guest.mkdir</strong>&#xFF1A;&#x5728;VM&#x4E2D;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x5939;</p>
+<pre class="language-"><code class="lang-bash">govc guest.mkdir -vm <span class="token variable">$vmname</span> /root/test
+</code></pre>
+</li>
+<li><p><strong>guest.mktemp</strong>&#xFF1A;&#x5728;VM&#x4E2D;&#x521B;&#x5EFA;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x6216;&#x6587;&#x4EF6;&#x5939;</p>
+</li>
+<li><p><strong>guest.mv</strong>&#xFF1A;&#x5728;VM&#x4E2D;&#x79FB;&#x52A8;&#x6587;&#x4EF6;</p>
+</li>
+<li><p><strong>guest.ps</strong>&#xFF1A;&#x67E5;&#x770B;VM&#x4E2D;&#x7684;&#x8FDB;&#x7A0B;</p>
+</li>
+<li><p><strong>guest.rm</strong>&#xFF1A;&#x5220;&#x9664;VM&#x4E2D;&#x7684;&#x6587;&#x4EF6;</p>
+</li>
+<li><p><strong>guest.rmdir</strong>&#xFF1A;&#x5220;&#x9664;VM&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x5939;</p>
+</li>
+<li><p><strong>guest.run</strong>&#xFF1A;&#x5728;VM&#x4E2D;&#x8FD0;&#x884C;&#x547D;&#x4EE4;&#xFF0C;&#x5E76;&#x663E;&#x793A;&#x8F93;&#x51FA;&#x7ED3;&#x679C;</p>
+<pre class="language-"><code class="lang-bash">Usage: govc guest.run <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span> <span class="token environment constant">PATH</span> <span class="token punctuation">[</span>ARG<span class="token punctuation">]</span><span class="token punctuation">..</span>.
+
+Examples:
+  govc guest.run -vm <span class="token variable">$vmname</span> <span class="token function">ifconfig</span>
+  govc guest.run -vm <span class="token variable">$vmname</span> <span class="token function">ifconfig</span> eth0
+  <span class="token function">cal</span> <span class="token operator">|</span> govc guest.run -vm <span class="token variable">$vmname</span> -d - <span class="token function">cat</span>
+  govc guest.run -vm <span class="token variable">$vmname</span> -d <span class="token string">&quot;hello <span class="token environment constant">$USER</span>&quot;</span> <span class="token function">cat</span>
+  govc guest.run -vm <span class="token variable">$vmname</span> <span class="token function">curl</span> -s :invalid: <span class="token operator">||</span> <span class="token builtin class-name">echo</span> <span class="token variable">$?</span> <span class="token comment"># exit code 6</span>
+  govc guest.run -vm <span class="token variable">$vmname</span> -e <span class="token assign-left variable">FOO</span><span class="token operator">=</span>bar -e <span class="token assign-left variable">BIZ</span><span class="token operator">=</span>baz -C /tmp <span class="token function">env</span>
+
+Options:
+  -C<span class="token operator">=</span>                    The absolute path of the working directory <span class="token keyword">for</span> the program to start
+  -d<span class="token operator">=</span>                    Input data string. A value of <span class="token string">&apos;-&apos;</span> reads from OS stdin
+  -e<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>                  Set environment variables
+  -i<span class="token operator">=</span>false               Interactive session
+  -l<span class="token operator">=</span>:                   Guest VM credentials <span class="token punctuation">[</span>GOVC_GUEST_LOGIN<span class="token punctuation">]</span>
+  -vm<span class="token operator">=</span>                   Virtual machine <span class="token punctuation">[</span>GOVC_VM<span class="token punctuation">]</span>
+
+govc guest.run -vm <span class="token variable">$vmname</span> <span class="token function">sh</span> -c /root/beforeShutDown.sh
+</code></pre>
+</li>
+<li><p><strong>guest.start</strong>&#xFF1A;&#x5728;VM&#x4E2D;&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x5E76;&#x663E;&#x793A;&#x8F93;&#x51FA;&#x7ED3;&#x679C;</p>
+<pre class="language-"><code class="lang-bash">Usage: govc guest.start <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span> <span class="token environment constant">PATH</span> <span class="token punctuation">[</span>ARG<span class="token punctuation">]</span><span class="token punctuation">..</span>.
+
+Examples:
+  govc guest.start -vm <span class="token variable">$vmname</span> /bin/mount /dev/hdb1 /data
+  <span class="token assign-left variable">pid</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span>govc guest.start -vm $vmname /bin/long-running-thing<span class="token variable">)</span></span>
+  govc guest.ps -vm <span class="token variable">$vmname</span> -p <span class="token variable">$pid</span> -X
+
+Options:
+  -C<span class="token operator">=</span>                    The absolute path of the working directory <span class="token keyword">for</span> the program to start
+  -e<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>                  Set environment variable <span class="token punctuation">(</span>key<span class="token operator">=</span>val<span class="token punctuation">)</span>
+  -i<span class="token operator">=</span>false               Interactive session
+  -l<span class="token operator">=</span>:                   Guest VM credentials <span class="token punctuation">[</span>GOVC_GUEST_LOGIN<span class="token punctuation">]</span>
+  -vm<span class="token operator">=</span>                   Virtual machine <span class="token punctuation">[</span>GOVC_VM<span class="token punctuation">]</span>
+</code></pre>
+</li>
+<li><p><strong>guest.touch</strong>&#xFF1A;&#x5728;VM&#x4E2D;&#x521B;&#x5EFA;&#x6587;&#x4EF6;</p>
+</li>
+<li><p><strong>guest.upload</strong>&#xFF1A;&#x4E0A;&#x4F20;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x5230;VM&#x4E2D;</p>
+<pre class="language-"><code class="lang-bash">govc guest.upload -vm <span class="token variable">$vmname</span> ./**.tar.gz /root/***.tar.gz
+</code></pre>
+</li>
+</ul>
 <footer class="page-footer"><span class="copyright">Copyright Curiouser all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2020-02-08 15:32:02
+2020-02-08 22:54:52
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
 						
@@ -5056,7 +5153,7 @@ govc vm.power -off -M VM_Name
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"go语言CLI客户端：govc","level":"7.20.3.1","depth":3,"next":{"title":"钉钉机器人","level":"7.21","depth":1,"path":"origin/dingding-customrobot.md","ref":"origin/dingding-customrobot.md","articles":[]},"previous":{"title":"SDK/CLI","level":"7.20.3","depth":2,"ref":"","articles":[{"title":"go语言CLI客户端：govc","level":"7.20.3.1","depth":3,"path":"origin/vsphere-govc.md","ref":"origin/vsphere-govc.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"./assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"gitbooks-devops-roadmap","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://raw.githubusercontent.com/RationalMonster/gitbooks-devops-roadmap/master/","label":"查看源MD文件"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/vsphere-govc.md","mtime":"2020-02-08T07:32:02.496Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2020-02-08T07:33:27.719Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"Go语言CLI: govc","level":"7.20.3.1","depth":3,"next":{"title":"钉钉机器人","level":"7.21","depth":1,"path":"origin/dingding-customrobot.md","ref":"origin/dingding-customrobot.md","articles":[]},"previous":{"title":"SDK/CLI","level":"7.20.3","depth":2,"ref":"","articles":[{"title":"Go语言CLI: govc","level":"7.20.3.1","depth":3,"path":"origin/vsphere-govc.md","ref":"origin/vsphere-govc.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"./assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"gitbooks-devops-roadmap","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://raw.githubusercontent.com/RationalMonster/gitbooks-devops-roadmap/master/","label":"查看源MD文件"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/vsphere-govc.md","mtime":"2020-02-08T14:54:52.422Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2020-02-08T14:57:29.668Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>
