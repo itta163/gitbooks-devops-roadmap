@@ -293,5 +293,6 @@
     * [vCenter](origin/vSphere-vCenter.md)
     * SDK/CLI
       * [Go语言CLI: govc](origin/vsphere-govc.md)
+* [Raspberry Pi树莓派](origin/raspberry-pi.md)
 * [钉钉机器人](origin/dingding-customrobot.md)
 * [经典面试题](origin/经典面试题.md)
