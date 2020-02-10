@@ -59,6 +59,10 @@ oh-my-zsh Github：https://github.com/robbyrussell/oh-my-zsh
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# 下载相关插件
+git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
 **`wget`**
@@ -181,8 +185,9 @@ alias k='kubectl'
 
 - **catimg**：将图片的内容输出到命令行
   
+
 `catimg demo.jpg`
-  
+
 - **zsh-syntax-highlighting**：命令高亮 正确路径自带下划线
 
   安装：`git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
