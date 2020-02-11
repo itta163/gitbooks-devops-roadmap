@@ -105,6 +105,7 @@
         * [Maven](origin/nexus-maven仓库的配置与使用.md)
         * [NPM](origin/nexus-npm仓库的配置与使用.md)
         * [YUM](origin/nexus-yum仓库的配置与使用.md)
+        * [Composer](origin/nexus-composer.md)
         * Docker
         * RAW
     * [数据备份恢复](origin/nexus-数据的备份恢复.md)
