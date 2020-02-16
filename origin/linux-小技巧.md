@@ -120,13 +120,13 @@ cached是cpu与内存间的，buffer是内存与磁盘间的，都是为了解�
 #内核配置接口 /proc/sys/vm/drop_caches 可以允许用户手动清理cache来达到释放内存的作用，这个文件有三个值：1、2、3（默认值为0）
 
 #释放pagecache
-$> echo 1 > /proc/sys/vm/drop_caches
+echo 1 > /proc/sys/vm/drop_caches
 
 #释放dentries、inodes
-$> echo 2 > /proc/sys/vm/drop_caches
+echo 2 > /proc/sys/vm/drop_caches
 
 #释放pagecache、dentries、inodes
-$> echo 3 > /proc/sys/vm/drop_caches
+echo 3 > /proc/sys/vm/drop_caches
 ```
 
 # 11、设置代理

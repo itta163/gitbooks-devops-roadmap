@@ -196,7 +196,7 @@ govc guest.* -vm $vmname
     -l=:                   Guest VM credentials [GOVC_GUEST_LOGIN]
     -vm=                   Virtual machine [GOVC_VM]
   
-  govc guest.run -vm $vmname sh -c /root/beforeShutDown.sh
+  govc guest.run -l $GOVC_GUEST_LOGIN -vm $vmname sh -c /root/beforeShutDown.sh
   ```
 
 - **guest.start**：在VM中启动程序，并显示输出结果
