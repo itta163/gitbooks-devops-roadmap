@@ -329,3 +329,16 @@ curl -b sugarcookies http://localhost/sugarcrm/index.php
 ```bash
 curl -k https://allinone.okd311.curiouser.com:8443
 ```
+
+## 16、引用环境变量
+
+Shell脚本中使用Curl命令，经常要通过变量替换变量中的值。使用`'"$var"'`进行应用
+
+```bash
+curl 'https://oapi.dingtalk.com/robot/send?access_token=******' \
+-H 'Content-Type: application/json' \
+-d '{"msgtype": "text",
+     "text": {"content": "消息是: '"$message"'"}
+}'
+```
+

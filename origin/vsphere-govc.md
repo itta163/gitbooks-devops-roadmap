@@ -91,10 +91,18 @@ govc是通过设置环境变量进行配置的。
 
 具体命令详解可查看文档：https://github.com/vmware/govmomi/blob/master/govc/USAGE.md
 
-## 1、查看所有VM
+## 1、查询操作
+
+### 查看所有VM
 
 ```bash
 govc find . -type m
+```
+
+### 查看所有开机的VM
+
+```bash
+govc find . -type m -runtime.powerState poweredOn
 ```
 
 ## 2、VM电源的开启与关闭
