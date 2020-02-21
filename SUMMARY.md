@@ -107,7 +107,7 @@
         * [YUM](origin/nexus-yum仓库的配置与使用.md)
         * [Composer](origin/nexus-composer.md)
         * Docker
-        * Helm
+        * [Helm](origin/nexus-helm.md)
         * RAW
     * [数据备份恢复](origin/nexus-数据的备份恢复.md)
     * [API](/origin/nexus-api.md)
