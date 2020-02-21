@@ -173,6 +173,7 @@
             * [Snapshots](origin/elasticSearch-索引的快照备份与恢复.md)
             * [插件管理](origin/elasticsearch-插件管理.md)
             * [通讯加密](origin/elasticsearch-ssl-tls.md)
+            * [索引快照清理策略](origin/elasticsearch-index-clean-snapshots.md)
         * 性能
             * [测试](origin/elasticsearch-pressuretest.md)
             * [优化](origin/elasticsearch-optimizing.md)

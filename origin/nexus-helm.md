@@ -67,3 +67,7 @@ curl -u 用户名:密码 http://nexus-ip:8081/repository/helm-hosted/ --upload-f
 ```
 
 ![](../assets/nexus-helm-4.png)
+
+## 3、手动在Nexus UI界面上传`.gz`格式的Chart到Helm Hosted仓库
+
+![](../assets/nexus-helm-5.png)
