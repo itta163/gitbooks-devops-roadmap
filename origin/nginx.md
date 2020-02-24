@@ -111,6 +111,11 @@ yum install -y gcc gc++ perl gcc-c++
     ./config && \
     make && \
     make install
+    
+  # 如果是在MacOS下源码编译，配置时手动指定OS平台
+  ./Configure darwin64-x86_64-cc && \
+  make  && \
+  sudo make install
   ```
 
 ### ③下载解压Nginx源码包

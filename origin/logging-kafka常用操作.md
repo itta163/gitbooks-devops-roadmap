@@ -23,7 +23,7 @@ kafka-topics.sh --create --zookeeper  127.0.0.1:2181 --replication-factor 2 --pa
 kafka-topics.sh --delete --zookeeper 127.0.0.1:2181 --topic Test
 或者
 #只会删除zookeeper中的元数据，消息文件须手动删除
-kafka-run-class.sh kafka.admin.DeleteTopicCommand --zookeeper 172.16.3.12:2181/kafka/q-35aw0fye --topic Test
+kafka-run-class.sh kafka.admin.DeleteTopicCommand --zookeeper 127.0.0.1:2181 --topic Test
 ```
 
 ## 4. 查看Topic的详细信息
