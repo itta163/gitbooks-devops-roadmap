@@ -106,6 +106,7 @@
         * [NPM](origin/nexus-npm仓库的配置与使用.md)
         * [YUM](origin/nexus-yum仓库的配置与使用.md)
         * [Composer](origin/nexus-composer.md)
+        * [Pypi](origin/nexus-pypi.md)
         * Docker
         * [Helm](origin/nexus-helm.md)
         * RAW
