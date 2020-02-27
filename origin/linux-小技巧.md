@@ -133,14 +133,20 @@ echo 3 > /proc/sys/vm/drop_caches
 
 ```bash
 $> bash -c 'cat >> /etc/profile <<EOF
-##HTTP协议使用代理服务器地址
+# HTTP协议使用代理服务器地址
 export http_proxy=http://1.2.3.4:3128
-##HTTPS协议使用代理服务器地址
+# HTTPS协议使用代理服务器地址
 export https_proxy=https://1.2.3.4:3128
-##FTP协议使用代理服务器地址
+# FTP协议使用代理服务器地址
 export https_proxy=https://1.2.3.4:3128
-##不使用代理的IP或主机
-export no_proxy=*.abc.com,10.*.*.*,192.168.*.*,*.local,localhost,127.0.0.1
+# 不使用代理的IP或主机
+export no_proxy=.abc.com,127.0.0.0/8,192.168.0.0/16,.local,localhost,127.0.0.1
+
+export HTTP_PROXY="http://1.2.3.4:3128"
+export HTTPS_PROXY="http://1.2.3.4:3128"
+export NO_PROXY="192.168.0.0/16,.taobao.com,.okd311.curiouser.com"
+
+export 
 EOF' ;\
    sed -i '/^##/d' /etc/profile ;\
    source /etc/profile
@@ -148,9 +154,10 @@ EOF' ;\
 
 **注意**：
 
-当使用“**export http_proxy**”和“**export https_proxy**”设置代理时，curl默认所有的请求都是走的代理，请求域名不通过/etc/hosts解析。
+- 当使用“**export http_proxy**”和“**export https_proxy**”设置代理时，curl默认所有的请求都是走的代理，请求域名不通过/etc/hosts解析。
 
-所以当有需求curl命令不走代理，通过/etc/hosts解析时，代理设置要通过“**export HTTP_PROXY**”和“**export HTTPS_PROXY**”设置。（原因是url.c（版本7.39中的第4337行）处看先检查小写版本，如果找不到，则检查大写。链接：https://stackoverflow.com/questions/9445489/performing-http-requests-with-curl-using-proxy）
+- 所以当有需求curl命令不走代理，通过/etc/hosts解析时，代理设置要通过“**export HTTP_PROXY**”和“**export HTTPS_PROXY**”设置。（原因是url.c（版本7.39中的第4337行）处看先检查小写版本，如果找不到，则检查大写。链接：https://stackoverflow.com/questions/9445489/performing-http-requests-with-curl-using-proxy）
+- **no_proxy不支持模糊匹配**。不支持`*.a.com`，支持`.a.com`
 
 # 12、查看网卡UUID
 
@@ -178,7 +185,7 @@ EOF' ;\
 
 ## 获得毫秒级的时间戳
 
-在linux Shell中并没有毫秒级的时间单位，只有秒和纳秒其实这样就足够了，因为纳秒的单位范围是（000000000..999999999），所以从纳秒也是可以的到毫秒的
+在linux Shell中并没有毫秒级的时间单位，只有秒和纳秒。其实这样就足够了，因为纳秒的单位范围是（000000000..999999999），所以从纳秒也是可以的到毫秒的
 
     current=`date "+%Y-%m-%d %H:%M:%S"`     #获取当前时间，例：2015-03-11 12:33:41
     timeStamp=`date -d "$current" +%s`      #将current转换为时间戳，精确到秒
