@@ -192,9 +192,13 @@ EOF' ;\
     currentTimeStamp=$((timeStamp*1000+`date "+%N"`/1000000)) #将current转换为时间戳，精确到毫秒
     echo $currentTimeStamp
 
-# 14、设置时区
+# 14、nohup手动后台运行进程
 
-    cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+```bash
+nohup jar -jar jar包 </dev/null > /data/app/logs/app.log 2>&1  &
+
+# 2>&1是把标准错误（2）重定向到标准输出中（1），而标准输出又导入文件里面，所以标准错误和标准输出都会输出到文件。
+```
 
 # 15、生成文件的MD值
 
@@ -767,8 +771,11 @@ abcd::::efg::hi
    # 查看时区
    ```
 
+   或者
    
-   
+   ```bash
+   cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+   ```
 # 36、shell脚本的调试
 
   - 在脚本运行时添加`-x`参数    
@@ -783,10 +790,6 @@ rm  -rf -- -XGET
 
 cd -- -XGET
 ```
-
-
-
-   
 
    
 

@@ -71,6 +71,7 @@
   * [helm charts编写规则](origin/Kubernetes-helm-charts编写规则.md)
 * 问题
   * [Service与SpringBoot应用启动参数冲突的问题排查及解决方案](origin/Service与SpringBoot应用启动参数冲突的问题排查及解决方案.md)
+* [辅助工具](origin/kubernetes-tools.md)
 
 ## Part Ⅲ：持续集成与持续部署
 
@@ -251,6 +252,7 @@
     * [Windows Server管理](origin/windows-server.md)
 * Linux
     * [Linux小技巧](origin/linux-小技巧.md)
+    * [Linux后台启动进程](origin/linux-daemon.md)
     * [文本处理](origin/linux-文本处理.md)
     * [htpasswd](origin/linux-htpasswd.md)
     * [YAML文本处理工具shyaml](origin/linux-shyaml.md)
