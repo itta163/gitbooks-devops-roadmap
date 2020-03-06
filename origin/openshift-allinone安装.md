@@ -133,7 +133,7 @@
   ####################### Web Console #######################
 
   openshift_web_console_extension_script_urls=["https://xhua-static.sh1a.qingstor.com/allinone/allinone-webconsole.js"]
-  openshift_web_console_extension_stylesheet_urls=["https://hermes-uat.mbcloud.com/mbcloud/M00/00/3A/rBACF1vz8NyALOS3AAApT8C9PDY549.css"]
+  openshift_web_console_extension_stylesheet_urls=["https://hermes-uat.curiouser.com/curiouser/M00/00/3A/rBACF1vz8NyALOS3AAApT8C9PDY549.css"]
 
   ####################### Registry #######################
 

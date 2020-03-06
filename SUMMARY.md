@@ -302,3 +302,12 @@
 * [Raspberry Pi树莓派](origin/raspberry-pi.md)
 * [钉钉机器人](origin/dingding-customrobot.md)
 * [经典面试题](origin/经典面试题.md)
+
+## Part Ⅶ：大数据
+
+- Cloudera
+  - [安装部署](origin/cloudera-install.md)
+  - [集群管理](origin/cloudera-cluster-manage.md)
+  - [性能及高可用测试](origin/cloudera-performance-ha-test.md)
+  - 服务操作
+    - [HDFS](origin/cloudera-hdfs.md)
