@@ -2,14 +2,14 @@
 
 # 一、主机规划
 
-| 主机角色        | Host Name                      | IP         | OS         | 硬件                           | 外挂硬盘及挂载目录大小         | 额外服务角色 |
-| --------------- | ------------------------------ | ---------- | ---------- | ------------------------------ | ------------------------------ | ------------ |
-| Cloudera Manger | cm.cloudera.curiouser.com      | 172.16.7.2 | Redhat 7.4 | 16C32G                         | 500G /data 500G /var  50G /opt | HTTPD,MySQL  |
-| Master1         | master1.cloudera.curiouser.com | 172.16.7.3 | 16C64G     | 500G /data 500G /var  50G /opt |                                |              |
-| Master2         | master2.cloudera.curiouser.com | 172.16.7.4 | 16C32G     | 500G /data 500G /var  50G /opt |                                |              |
-| Node1           | node1.cloudera.curiouser.com   | 172.16.7.5 | 16C32G     | 500G /data 500G /var  50G /opt |                                |              |
-| Node2           | node2.cloudera.curiouser.com   | 172.16.7.6 | 16C32G     | 500G /data 500G /var  50G /opt |                                |              |
-| Node3           | node3.cloudera.curiouser.com   | 172.16.7.7 | 16C32G     | 500G /data 500G /var  50G /opt |                                |              |
+| 主机角色        | Host Name                      | IP         | 硬件   | 外挂硬盘及挂载目录大小         | 额外服务角色 |
+| --------------- | ------------------------------ | ---------- | ------ | ------------------------------ | ------------ |
+| Cloudera Manger | cm.cloudera.curiouser.com      | 172.16.7.2 | 16C32G | 500G /data 500G /var  50G /opt | HTTPD,MySQL  |
+| Master1         | master1.cloudera.curiouser.com | 172.16.7.3 | 16C64G | 500G /data 500G /var  50G /opt |              |
+| Master2         | master2.cloudera.curiouser.com | 172.16.7.4 | 16C32G | 500G /data 500G /var  50G /opt |              |
+| Node1           | node1.cloudera.curiouser.com   | 172.16.7.5 | 16C32G | 500G /data 500G /var  50G /opt |              |
+| Node2           | node2.cloudera.curiouser.com   | 172.16.7.6 | 16C32G | 500G /data 500G /var  50G /opt |              |
+| Node3           | node3.cloudera.curiouser.com   | 172.16.7.7 | 16C32G | 500G /data 500G /var  50G /opt |              |
 
 # 二、Prerequisite
 

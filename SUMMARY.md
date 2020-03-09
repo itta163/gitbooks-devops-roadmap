@@ -67,6 +67,7 @@
   * [kubernetes集群组件](origin/kubernetes-集群组件.md)
   * [kubectl多集群上下文配置](origin/kubernetes-kubectl多集群上下文配置.md)
   * [Network Policy容器流量管理](origin/kubernetes-NetworkPolicy.md)
+* [用户认证ServiceAccount与授权策略RBAC](origin/kubernetes-serviceaccount-rbac.md)
 * [K8S应用管理工具Helm](origin/kubernetes-helm.md)
   * [helm charts编写规则](origin/Kubernetes-helm-charts编写规则.md)
 * 问题
@@ -288,6 +289,7 @@
             * [ACL访问权限](origin/squid-acl访问权限控制.md)
     * [反向代理](origin/常见反向代理服务软件之间的区别.md)
         * [Nginx](origin/nginx.md)
+          * [Nginx配置优化](origin/nginx-config.md)
 * iSCSI
     * [群晖Synology的iSCSI](origin/iSCSI-简介配置使用.md)
 * [GitBook](origin/gitbook-简介安装配置.md)

@@ -357,22 +357,22 @@ $ tree /opt/nginx-1.17.6
 ├── fastcgi_params
 ├── fastcgi_params.default
 ├── fastcgi_temp
-├── html                                    #站点目录
-│   ├── 50x.html                                #错误页
-│   └── index.html                            #首页
+├── html                                  # 站点目录
+│   ├── 50x.html                          # 错误页
+│   └── index.html                        # 首页
 ├── koi-utf
 ├── koi-win
-├── logs                                  #日志目录
-│   ├── access.log                        #nginx访问日志
-│   └── error.log                         #Nginx的错误日志
-├── mime.types                            #媒体类型
+├── logs                                  # 日志目录
+│   ├── access.log                        # nginx访问日志
+│   └── error.log                         # Nginx的错误日志
+├── mime.types                            # 媒体类型
 ├── mime.types.default
-├── nginx                                 #Nginx的二进制启动命令脚本
-├── nginx.conf                            #Nginx的主要配置文件
+├── nginx                                 # Nginx的二进制启动命令脚本
+├── nginx.conf                            # Nginx的主要配置文件
 ├── nginx.conf.default
-├── nginx.pid                             #Nginx所有的进程号文件
+├── nginx.pid                             # Nginx所有的进程号文件
 ├── nginx-rtmp-module
-├── proxy_temp                            #临时目录
+├── proxy_temp                            # 临时目录
 ├── scgi_params                
 ├── scgi_params.default
 ├── scgi_temp
@@ -414,13 +414,182 @@ $ nginx -g directives # set global configuration directives, for example,       
 
 
 
-# 六、示例配置文件
+# 六、配置文件结构
+
+![](../assets/nginx-2.png)
+
+
+
+- **全局配置**：用来设置影响Nginx服务器整体运行的配置，作用于全局。（从文件开始到events块的内容）
+  - **作用**：通常包括服务器的用户组，允许生成的worker process、Nginx进程PID的存放路径、日志的存放路径和类型以及配置文件引入等
+- **事件配置**：涉及的指令主要影响Nginx服务器和用户的网络连接。
+  - **作用**：常用到的设置包括是否开启多worker process下的网络连接进行序列化，是否允许同时接收多个网络连接，选择何种时间驱动模型处理连接请求，每个worker process可以同时支持的最大连接数等
+- **模块配置**
+  - HTTP模块
+    - HTTP模块的全局配置
+    - 虚拟主机的配置
+
+
+
+```bash
+# Nginx全局配置
+user  nobody;						# 指定Nginx的worker进程运行用户以及用户组，默认由nobody账号运行
+worker_processes  1;		# 指定Nginx要开启的进程数
+error_log  logs/error.log  # 全局错误日志文件路径。日志级别：debug/info/notice/warn/error/crit
+pid        logs/nginx.pid; # 指定进程PID文件的路径
+
+# 事件配置，设定nginx的工作模式及连接数上限
+events {
+	use epoll; # 指定nginx的工作模式。支持的工作模式有select ,poll,kqueue,epoll,rtsig,/dev/poll
+						 # epoll是多路复用IO(I/O Multiplexing)中的一种方式，
+						 # select和poll都是标准的工作模式，kqueue和epoll是高效的工作模式，
+						 # 对于linux系统，epoll是首选。
+  worker_connections  1024; # 设置nginx每个进程最大的连接数，默认是1024，所以nginx最大的连接数
+  													# max_client=worker_processes * worker_connections。
+  													# 进程最大连接数受到系统最大打开文件数的限制，需要设置ulimit。
+}
+
+# HTTP模块配置
+http {
+    include       mime.types; # 配置处理前端请求的MIME类型
+    default_type  application/octet-stream;
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  logs/access.log  main;
+    
+    sendfile        on; # 开启高效文件传输模式（zero copy 方式），避免内核缓冲区数据
+    										# 和用户缓冲区数据之间的拷贝。sendfile 参数和I/O有关，当上传文件时，内核首先缓												# 冲数据，然后将数据发送到应用应用程序缓冲区。 应用程序反过来将数据发送到目的地。 												 # Sendfile方法是一种改进的数据传输方法，其中数据在操作系统内核空间内的文件描述符												# 之间复制，而不将数据传输到应用程序缓冲区。由于没有了用户态和内核态之间的切换，
+    										# 也没有内核缓冲区和用户缓冲区之间的拷贝，大大提升了传输性能。
+    tcp_nopush     on;
+    keepalive_timeout  65;  # 设置客户端连接超时时间
+    gzip  on;								# 设置是否开启gzip模块
+		# 虚拟主机 
+    server {
+        listen       80;			# 虚拟主机的服务端口
+        server_name  localhost;
+				server_tokens off;		# 隐藏响应头中的有关操作系统和Nginx服务器版本号的信息，保障安全性
+        charset koi8-r;
+
+        access_log  logs/host.access.log  main;
+
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+        # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+        #
+        #location ~ \.php$ {
+        #    proxy_pass   http://127.0.0.1;
+        #}
+
+        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        #
+        #location ~ \.php$ {
+        #    root           html;
+        #    fastcgi_pass   127.0.0.1:9000;
+        #    fastcgi_index  index.php;
+        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+        #    include        fastcgi_params;
+        #}
+
+        # deny access to .htaccess files, if Apache's document root
+        # concurs with nginx's one
+        #
+        #location ~ /\.ht {
+        #    deny  all;
+        #}
+    }
+
+
+    # another virtual host using mix of IP-, name-, and port-based configuration
+    #
+    #server {
+    #    listen       8000;
+    #    listen       somename:8080;
+    #    server_name  somename  alias  another.alias;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+
+    # HTTPS server
+    #
+    #server {
+    #    listen       443 ssl;
+    #    server_name  localhost;
+
+    #    ssl_certificate      cert.pem;
+    #    ssl_certificate_key  cert.key;
+
+    #    ssl_session_cache    shared:SSL:1m;
+    #    ssl_session_timeout  5m;
+
+    #    ssl_ciphers  HIGH:!aNULL:!MD5;
+    #    ssl_prefer_server_ciphers  on;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+}
+```
 
 
 
 
 
-# 七、问题
+# 七、nginx内置变量
+
+```bash
+$args                      请求中的参数;
+$binary_remote_addr        远程地址的二进制表示
+$body_bytes_sent           已发送的消息体字节数
+$content_length            HTTP请求信息里的"Content-Length"
+$content_type              请求信息里的"Content-Type"
+$document_root             针对当前请求的根路径设置值
+$document_uri              与$uri相同
+$host                      请求信息中的"Host"，如果请求中没有Host行，则等于设置的服务器名;    
+$http_cookie               cookie 信息 
+$http_referer              来源地址
+$http_user_agent           客户端代理信息
+$http_via                  最后一个访问服务器的Ip地址
+$http_x_forwarded_for      相当于网络访问路径。    
+$limit_rate                对连接速率的限制          
+$remote_addr               客户端地址
+$remote_port               客户端端口号
+$remote_user               客户端用户名，认证用
+$request                   用户请求信息
+$request_body              用户请求主体
+$request_body_file         发往后端的本地文件名称      
+$request_filename          当前请求的文件路径名
+$request_method            请求的方法，比如"GET"、"POST"等
+$request_uri               请求的URI，带参数   
+$server_addr               服务器地址，如果没有用listen指明服务器地址，使用这个变量将发起一次系统调用以取得地址(造成资源浪费)
+$server_name               请求到达的服务器名
+$server_port               请求到达的服务器端口号
+$server_protocol           请求的协议版本，"HTTP/1.0"或"HTTP/1.1"
+$uri                       请求的URI，可能和最初的值有不同，比如经过重定向之类的
+```
+
+
+
+# 八、问题
 
 ## 0. Nginx添加模块并不停服升级
 
