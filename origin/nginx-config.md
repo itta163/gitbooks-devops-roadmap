@@ -34,7 +34,7 @@ http {
 }
 ```
 
-输出的JSON格式日志
+**输出的JSON格式日志**
 
 ```json
 {
@@ -55,4 +55,17 @@ http {
 ```
 
 
+
+# 二、按天保留日志文件
+
+```yaml
+server{
+...
+		if ($time_iso8601 ~ '(\d{4}-\d{2}-\d{2})') {
+       set $tttt $1;
+    }
+    access_log  logs/nginx-access-$tttt.log  main;
+...
+}
+```
 

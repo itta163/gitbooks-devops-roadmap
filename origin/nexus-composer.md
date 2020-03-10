@@ -69,10 +69,31 @@ composer --version
 
 ### 方式一：配置Composer全局使用私有源
 
+#### ①手动
+
    ```bash
 composer config -g repo.packagist composer http://Neuxs-IP:8081/repository/composer-public/   # Composer默认使用ssl连接代理源，使用私有仓库源时，使用的HTTP，需要关闭SSL
 composer config -g -- disable-tls true
+composer config -g -- secure-http false
    ```
+
+#### ②使用crm工具
+
+```bash
+#安装
+composer global require slince/composer-registry-manager ^2.0
+
+# 添加公司内部的私有源
+composer repo:add synology-nxus http://Neuxs-IP:8081/repository/composer-public/
+
+# 查看所有的私有源
+composer repo:ls
+
+# 切换到私有源
+composer repo:use synology-nxus
+```
+
+
 
 ### 方式二：配置项目级别配置使用私有源
 
