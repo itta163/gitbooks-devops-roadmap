@@ -471,8 +471,8 @@ EOF' ;\
 # 22、硬盘自动分区，格式化，开机自动挂载到/data
 
 ```bash
-$> disk=/dev/sdc;\
-   bash -c "fdisk ${disk}<<End
+disk=/dev/sdc;\
+bash -c "fdisk ${disk}<<End
 n
 p
 1
@@ -480,12 +480,12 @@ p
 
 wq
 End" ;\
-  mkfs.ext4 ${disk}1 ;\
-  blkid | grep ${disk}1 | cut -d ' ' -f 2 >>/etc/fstab ;\
-  sed -i '$ s/$/ \/data ext4 defaults 0 0/' /etc/fstab ;\
-  mkdir /data ;\
-  mount -a ;\
-  df -h
+mkfs.ext4 ${disk}1 ;\
+blkid | grep ${disk}1 | cut -d ' ' -f 2 >>/etc/fstab ;\
+sed -i '$ s/$/ \/data ext4 defaults 0 0/' /etc/fstab ;\
+mkdir /data ;\
+mount -a ;\
+df -h
 ```
 
 # 23、在hosts文件中添加IP地址与主机名的域名映射
@@ -791,5 +791,28 @@ rm  -rf -- -XGET
 cd -- -XGET
 ```
 
-   
+# 38、硬盘快速分区
+
+使用parted命令。parted命令详解：https://www.cnblogs.com/Cherry-Linux/p/10103172.html
+
+ ```bash
+disk=/dev/vdb && \
+parted -s -a optimal $disk mklabel gpt -- mkpart primary ext4 1 -1
+ ```
+
+使用fdisk
+
+```bash
+disk=/dev/vdb && \
+bash -c "fdisk ${disk}<<End
+n
+p
+1
+
+
+wq
+End"
+```
+
+
 

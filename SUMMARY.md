@@ -198,6 +198,7 @@
       * [Docker原理](origin/docker原理.md)
       * [Dockerfile中CMD与ENTRYPOINT命令的区别](origin/docker-Dockerfile中CMD与ENTRYPOINT命令的区别.md)
       * [使用Makefile操作Dockerfile.md](origin/docker-使用Makefile操作Dockerfile.md)
+      * [多阶段构建](origin/docker-multi-stage-build.md)
     * Dockerfile扫描工具
       * [Hadolint](origin/dockerfile-hadolint.md)
 * Shell
