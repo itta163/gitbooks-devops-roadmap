@@ -46,8 +46,4 @@ This gitbook records the technical roadmap of Devops Curiouser.
 | 项目管理：日常工作汇报模板                                   |      |
 | Openshift 4.3 ：部署，优化集群                               |      |
 | Gitbook：Cloudera安装操作手册                                | Done |
-|                                                              |      |
-|                                                              |      |
-|                                                              |      |
-|                                                              |      |
 

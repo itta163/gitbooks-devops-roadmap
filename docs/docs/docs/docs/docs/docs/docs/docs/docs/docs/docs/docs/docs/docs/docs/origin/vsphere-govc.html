@@ -1832,6 +1832,21 @@
                     
                         <b>4.3.3.6.</b>
                     
+                    Helm
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3.3.7" >
+            
+                <span>
+            
+                    
+                        <b>4.3.3.7.</b>
+                    
                     RAW
             
                 </span>
@@ -5034,8 +5049,12 @@ $ govc about -u user:pass@host
 <p>&#x4EE5;&#x4E0A;&#x53D8;&#x91CF;&#x53EF;&#x5728;<code>~/.zshrc&#x6216;/etc/profile&#x6216;~/.bashrc</code>&#x4E2D;&#x8BBE;&#x7F6E;&#xFF0C;&#x540C;&#x65F6;&#x53EF;&#x4F7F;&#x7528;<code>govc env</code>&#x67E5;&#x770B;&#x8BBE;&#x7F6E;&#x3002;</p>
 <h1 id="&#x4E09;&#x3001;&#x5E38;&#x7528;&#x547D;&#x4EE4;">&#x4E09;&#x3001;&#x5E38;&#x7528;&#x547D;&#x4EE4;</h1>
 <p>&#x5177;&#x4F53;&#x547D;&#x4EE4;&#x8BE6;&#x89E3;&#x53EF;&#x67E5;&#x770B;&#x6587;&#x6863;&#xFF1A;<a href="https://github.com/vmware/govmomi/blob/master/govc/USAGE.md" _target="blank">https://github.com/vmware/govmomi/blob/master/govc/USAGE.md</a></p>
-<h2 id="1&#x3001;&#x67E5;&#x770B;&#x6240;&#x6709;vm">1&#x3001;&#x67E5;&#x770B;&#x6240;&#x6709;VM</h2>
+<h2 id="1&#x3001;&#x67E5;&#x8BE2;&#x64CD;&#x4F5C;">1&#x3001;&#x67E5;&#x8BE2;&#x64CD;&#x4F5C;</h2>
+<h3 id="&#x67E5;&#x770B;&#x6240;&#x6709;vm">&#x67E5;&#x770B;&#x6240;&#x6709;VM</h3>
 <pre class="language-"><code class="lang-bash">govc <span class="token function">find</span> <span class="token builtin class-name">.</span> -type m
+</code></pre>
+<h3 id="&#x67E5;&#x770B;&#x6240;&#x6709;&#x5F00;&#x673A;&#x7684;vm">&#x67E5;&#x770B;&#x6240;&#x6709;&#x5F00;&#x673A;&#x7684;VM</h3>
+<pre class="language-"><code class="lang-bash">govc <span class="token function">find</span> <span class="token builtin class-name">.</span> -type m -runtime.powerState poweredOn
 </code></pre>
 <h2 id="2&#x3001;vm&#x7535;&#x6E90;&#x7684;&#x5F00;&#x542F;&#x4E0E;&#x5173;&#x95ED;">2&#x3001;VM&#x7535;&#x6E90;&#x7684;&#x5F00;&#x542F;&#x4E0E;&#x5173;&#x95ED;</h2>
 <pre class="language-"><code class="lang-bash"><span class="token assign-left variable">vmname</span><span class="token operator">=</span>test
@@ -5147,7 +5166,7 @@ Options:
 </li>
 </ul>
 <footer class="page-footer"><span class="copyright">Copyright Curiouser all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2020-02-14 23:21:17
+2020-02-20 13:19:45
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
 						
@@ -5187,7 +5206,7 @@ Options:
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"Go语言CLI: govc","level":"7.20.3.1","depth":3,"next":{"title":"Raspberry Pi树莓派","level":"7.21","depth":1,"path":"origin/raspberry-pi.md","ref":"origin/raspberry-pi.md","articles":[]},"previous":{"title":"SDK/CLI","level":"7.20.3","depth":2,"ref":"","articles":[{"title":"Go语言CLI: govc","level":"7.20.3.1","depth":3,"path":"origin/vsphere-govc.md","ref":"origin/vsphere-govc.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"./assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"gitbooks-devops-roadmap","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://raw.githubusercontent.com/RationalMonster/gitbooks-devops-roadmap/master/","label":"查看源MD文件"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/vsphere-govc.md","mtime":"2020-02-14T15:21:17.686Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2020-02-19T05:48:33.682Z"},"basePath":"..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"Go语言CLI: govc","level":"7.20.3.1","depth":3,"next":{"title":"Raspberry Pi树莓派","level":"7.21","depth":1,"path":"origin/raspberry-pi.md","ref":"origin/raspberry-pi.md","articles":[]},"previous":{"title":"SDK/CLI","level":"7.20.3","depth":2,"ref":"","articles":[{"title":"Go语言CLI: govc","level":"7.20.3.1","depth":3,"path":"origin/vsphere-govc.md","ref":"origin/vsphere-govc.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","-sharing","-highlight","search-pro","splitter","github","popup","sectionx","expandable-chapters","sharing-plus","code","auto-scroll-table","theme-fexa","tbfed-pagefooter","back-to-top-button","emphasize","edit-link","prism","donate","theme-comscore","github-buttons","github-issue-feedback"],"root":".","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright Curiouser","modify_label":"该文件最后修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"],"lang":{"flow":"typescript"},"ignore":["mermaid","eval-js"]},"emphasize":{},"github-issue-feedback":{"repo":"RationalMonster/rationalmonster.github.io"},"github":{"url":"https://github.com/RationalMonster"},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"theme-fexa":{"search-placeholder":"搜索文章","logo":"./assets/logo.png"},"code":{"copybuttons":"true","copyButtons":true},"donate":{"wechat":"/assets/wechat-donate.jpg","title":"","button":"赏","wechatText":"微信打赏","alipay":"","alipayText":"支付宝打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"sectionx":{},"theme-comscore":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"RationalMonster","repo":"gitbooks-devops-roadmap","type":"star","size":"small","count":"true"}]},"sharing":{"weibo":true,"qq":"true","google":true,"all":["facebook","twitter"]},"edit-link":{"base":"https://raw.githubusercontent.com/RationalMonster/gitbooks-devops-roadmap/master/","label":"查看源MD文件"},"theme-default":{"showLevel":true,"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"expandable-chapters":{}},"theme":"default","author":"Curiouser <rationalmonster@163.com>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Devops Roadmap","gitbook":"*"},"file":{"path":"origin/vsphere-govc.md","mtime":"2020-02-20T05:19:45.935Z","type":"markdown"},"gitbook":{"version":"3.0.0","time":"2020-02-20T13:47:22.620Z"},"basePath":"..","book":{"language":""}});
 		});
 	</script>
 </div>
