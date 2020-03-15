@@ -307,8 +307,7 @@
 * [Raspberry Pi树莓派](origin/raspberry-pi.md)
 * [钉钉机器人](origin/dingding-customrobot.md)
 * [经典面试题](origin/经典面试题.md)
-* [Aliyun SDK/CLI]
-    * [Aliyun CLI](origin/aliyun-cli.md)
+* [Aliyun CLI](origin/aliyun-cli.md)
 ## Part Ⅶ：大数据
 
 - Cloudera
