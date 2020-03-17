@@ -9,7 +9,7 @@
 
 ## 1. Jenkins安装LDAP插件
 
-###安装插件有两种方法：
+### 安装插件有两种方法：
 
 #### 方法一：后台插件管理里直接安装
 - 优点：简单方便，不需要考虑插件依赖问题
@@ -52,4 +52,4 @@ LDAP插件下载地址：https://updates.jenkins.io/download/plugins/ldap/
 2. https://plugins.jenkins.io/ldap
 3. https://wiki.jenkins.io/display/JENKINS/LDAP+Plugin#LDAPPlugin-Groupmembership
 4. https://www.cnblogs.com/zhaojiedi1992/p/zhaojiedi_liunx_52_ldap_for_jenkins.html
-5. https://blog.csdn.net/wanglei_storage/article/details/52935312
+5. https://blog.csdn.net/wanglei_storage/article/details/52935312 

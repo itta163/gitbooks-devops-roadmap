@@ -42,8 +42,7 @@ This gitbook records the technical roadmap of Devops Curiouser.
 | MySQL：压测、Gitbook上更新常见操作文档                       |      |
 | v2ray：在Synology上部署客户端                                |      |
 | SonarQube：在Synology上安装部署、配置规则、扫描PHP和JAVA项目、结合Jenkins CI/CD |      |
-| LDAP：使用Synology上的LDAP对接Jenkins、SonarQube、Gitlab、   |      |
-| 项目管理：日常工作汇报模板                                   |      |
+| LDAP：使用Synology上的LDAP对接Jenkins、SonarQube、Gitlab、   | Done |
 | Openshift 4.3 ：部署，优化集群                               |      |
 | Gitbook：Cloudera安装操作手册                                | Done |
 
