@@ -157,6 +157,8 @@
     * Logstash
         * [简介安装配置Pipeline](origin/logstash-简介安装配置Pipeline.md)
         * [Pipeline示例--采集MySQL慢查询日志到Elasticsearch](origin/logstash-采集MySQL慢查询日志到Elasticsearch.md)
+        * Filter
+          * [grok插件](origin/logstash-filter-grok.md)
     * Fluentd
     * Elasticsearch
         * 部署
