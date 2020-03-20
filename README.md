@@ -37,7 +37,7 @@ This gitbook records the technical roadmap of Devops Curiouser.
 | Todo                                                         | 排期 |
 | :----------------------------------------------------------- | ---- |
 | Apollo：定制、打包、构建docker镜像、创建Helm chart、在Synology上部署 |      |
-| Sentry：配置钉钉通知、在Synology上部署                       |      |
+| Sentry：配置钉钉通知、在Synology上部署                       | Done |
 | ElasticSearch：压测                                          |      |
 | MySQL：压测、Gitbook上更新常见操作文档                       |      |
 | v2ray：在Synology上部署客户端                                |      |
