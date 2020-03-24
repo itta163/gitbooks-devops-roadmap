@@ -119,7 +119,7 @@ function response(status, headers, body)
 
 **结束阶段：**
 
-```cmd
+```bash
 function done(summary, latency, requests)
 ```
 
