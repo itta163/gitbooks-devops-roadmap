@@ -793,14 +793,16 @@ cd -- -XGET
 
 # 38、硬盘快速分区
 
-使用parted命令。parted命令详解：https://www.cnblogs.com/Cherry-Linux/p/10103172.html
+## 方式一：使用parted命令
+
+parted命令详解：https://www.cnblogs.com/Cherry-Linux/p/10103172.html
 
  ```bash
 disk=/dev/vdb && \
 parted -s -a optimal $disk mklabel gpt -- mkpart primary ext4 1 -1
  ```
 
-使用fdisk
+## 方式二：使用fdisk
 
 ```bash
 disk=/dev/vdb && \
@@ -814,5 +816,27 @@ wq
 End"
 ```
 
+# 39、别名传参
 
+别名并不能直接传参，但是可以使用以下方式代替：
+
+## 方式一：使用functions替代
+
+```bash
+$ test () { num=${1:-5} dmesg |grep -iw usb|tail -$num }
+$ test 5
+
+```
+
+## 方式二：使用read读取输入，然后使用变量替换命令中的参数
+
+```bash
+$ alias taila='{ IFS= read -r line_num && tail -n $line_num /var/logs/message ;} <<<'
+$ taila 50
+```
+
+参考：
+
+1. https://askubuntu.com/questions/626458/can-i-pass-arguments-to-an-alias-command
+2. https://www.kutu66.com//ubuntu/article_158110
 

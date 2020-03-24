@@ -239,6 +239,11 @@
         * [Ceph RBD单节点安装](origin/ceph-rbd单节点安装.md)
         * [Ceph FileSystem单节点安装](origin/ceph-filesystem单节点安装.md)
     * 基础知识
+* 压力测试
+    * 工具
+        * [wrk](origin/wrk.md)
+    * 接口测试
+    * UI自动化测试
 * FastDFS
     * 安装
     * 使用
@@ -306,6 +311,9 @@
 * vSphere
     * [ESXI](origin/vsphere-esxi.md)
     * [vCenter](origin/vSphere-vCenter.md)
+    * OVF模板
+      * [OVF模板详解](origin/vsphere-ovf.md)
+      * [VMWare OVF Tools](origin/vmware-ovf-tool.md)
     * SDK/CLI
       * [Go语言CLI: govc](origin/vsphere-govc.md)
 * [Raspberry Pi树莓派](origin/raspberry-pi.md)
